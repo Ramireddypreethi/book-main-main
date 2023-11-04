@@ -1,0 +1,96 @@
+<!-- single-book.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .book-details {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .book-details h2 {
+            color: #007BFF;
+        }
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .details-table th, .details-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        .details-table th {
+            background-color: #f2f2f2;
+        }
+        .ratings-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .ratings-table th, .ratings-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        .ratings-table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Details</h1>
+   
+        <table class="details-table">
+            <tr>
+                <th>Title</th>
+                <td><%= book.title %></td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td><%= book.author %></td>
+            </tr>
+            <tr>
+                <th>ISBN</th>
+                <td><%= book.isbn %></td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td><%= book.price %></td>
+            </tr>
+            <!-- Add more rows for other book details as needed -->
+        </table>
+    
+    
+    <!-- Display book ratings and comments -->
+    <h2>Ratings and Comments</h2>
+    <table class="ratings-table">
+        <thead>
+            <tr>
+                <th>Rating</th>
+                <th>Comment</th>
+            </tr>
+        </thead>
+        
+            <% for (let i = 0; i < book.reviews.length; i++) { %>
+                <tr>
+                    <td><%= book.reviews[i].rating %></td>
+                    <td><%= book.reviews[i].Comment %></td>
+                </tr>
+            <% } %>
+        
+    </table>
+    
+    <!-- Add a form to submit new ratings and comments if needed -->
+</body>
+</html>

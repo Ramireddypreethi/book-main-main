@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Admin Profile page</title>
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("profimg.jpg");
+            background-size: cover;
+            background:linear-gradient(127deg,rgba(0,255,0,.8),rgba(0,255,0,0) 70.71%)
+             }
+           
+            button {
+                background-color: #6dd5ed;
+                color: #fff;
+                border: none;
+                width:500px;
+                height: 50px;
+                margin-bottom:40px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-left:15px;
+                font-size: 25px;
+            }
+            button:hover{
+                opacity:0.8;
+            }
+            form{
+                display:inline-block;
+            }
+            .buttons{
+                display:flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                height: 600px;
+                background: linear-gradient(45deg,whitesmoke,lightslategray,peachpuff);
+            }
+            .admin{
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                background: white;
+            }
+            button{
+                background-color: peachpuff;
+            }
+            </style>
+    </head>
+    <body>
+        <%- include('layout_admin') %>
+    <div class="admin">
+        <h1>Admin Profile Page</h1>
+        <!-- <p>Name: <%=user_details.name%></p> -->
+        <p style="font-size:20px;">Email: <%=user_details.email%></p>
+    </div>
+        <div class="buttons">
+        <a href="/all-books"><button style="margin-top:20px;">All books</button></a>
+        <a href="/get-add-book"><button>Add Books</button></a>
+        <a href="/get-book/651d8137d747c67367a808ad"><button>Get a Book</button></a>
+
+        <form action="/logout" method="POST">
+            <button type="submit">Log Out</button>
+        </form>
+    </div>
+    </body>
+</html> 

@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Profile page</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-image: url("profimg.jpg");
+                background-size: cover;
+                background:linear-gradient(127deg,rgba(0,255,0,.8),rgba(0,255,0,0) 70.71%)
+                 }
+               
+                button {
+                    background-color: #6dd5ed;
+                    color: #fff;
+                    border: none;
+                    width:500px;
+                    height: 50px;
+                    margin-bottom:40px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    margin-left:15px;
+                    font-size: 25px;
+                }
+                button:hover{
+                    opacity:0.8;
+                }
+                form{
+                    display:inline-block;
+                }
+                .buttons{
+                    display:flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: center;
+                }
+                .admin{
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    background-color: aqua;
+                }
+            </style>
+    </head>
+    <body>
+        <%- include('layout') %>
+        <h1>Profile Page</h1>
+        <div class="box">
+        <center>
+        <p><strong>Name: </strong><%=user_details.name%></p>
+        <p><strong>Email: </strong><%=user_details.email%></p>
+       </center>
+        <div class="buttons">
+        <a href="/profile/get-books"><button class="get-books">Get books</button></a>
+        <a href="/my-cart"><button class="my-cart">My Cart</button></a>
+        <a href="/get-update-profile"><button>Update Profile</button></a>
+        <form action="/logout" method="POST">
+            <button type="submit" class="logout">Log Out</button>
+        </form>
+    </div>
+    </div>
+    </body>
+</html> 

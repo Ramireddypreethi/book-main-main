@@ -1,0 +1,84 @@
+<!-- In post-reviews.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Reviews and Ratings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(50deg,grey,yellow);
+            color: grey;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: grey;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 100px;
+
+        }
+
+        form {
+            width: 60%;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            background:linear-gradient(217deg,yellow,lack,grey);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            background-color: blue;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            opacity: 0.8;
+        }
+    </style>
+
+    <!-- Add your CSS styles here -->
+</head>
+<body>
+    <%- include('layout_admin') %>
+    <center><h1>Post Reviews and Ratings</h1></center>
+    <form action="/post-reviews" method="POST">
+        <input type="hidden" name="bookId" value="<%= book._id %>">
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" min="1" max="5" required>
+        <br>
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" rows="4" required></textarea>
+        <br>
+        <button type="submit">Submit Review</button>
+    </form>
+</body>
+</html>
